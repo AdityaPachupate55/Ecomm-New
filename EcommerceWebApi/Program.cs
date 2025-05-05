@@ -12,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -75,8 +74,21 @@ builder.Services.AddSwaggerGen(c =>
             },
             new List<string>()
         }
+    }); 
+
+});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") // Replace with your Angular app's URL
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
+
+
+
 
 var app = builder.Build();
 
@@ -87,10 +99,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAngularApp"); 
 app.UseAuthentication();
 app.UseAuthorization();
 
