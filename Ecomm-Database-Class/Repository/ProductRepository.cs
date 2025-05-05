@@ -19,8 +19,38 @@ namespace Ecomm_Database_Class.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Product>> GetAllAsync() =>
-            await _context.Products.ToListAsync();
+        //public async Task<IEnumerable<Product>> GetAllAsync() =>
+        //    await _context.Products.ToListAsync();
+
+        public async Task<IEnumerable<Product>> GetAllAsync(string? brand, string? category, string? sort)
+        {
+            var query = _context.Products.AsQueryable();
+            if (!string.IsNullOrEmpty(brand))
+            {
+                query = query.Where(p => p.Brand.Contains(brand));
+            }
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                query = query.Where(p => p.CategoryId.ToString() == category);
+            }
+            if (sort == "asc")
+            {
+                query = query.OrderBy(p => p.Price);
+            }
+
+            if (sort == "desc")
+            {
+                query = query.OrderByDescending(p => p.Price);
+            }
+
+            if(string.IsNullOrEmpty(sort))
+            {
+                query = query.OrderByDescending(p => p.Name);
+            }
+
+            return await query.ToListAsync();
+        }
 
         public async Task<Product?> GetAllAsync(int id) =>
             await _context.Products.FindAsync(id);

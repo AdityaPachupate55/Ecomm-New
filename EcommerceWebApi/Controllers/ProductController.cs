@@ -18,13 +18,14 @@ namespace EcommerceWebApi.Controllers
             _repo = repo;
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(string? brand, string? category, string? sort)
         {
-            var products = await _repo.GetAllAsync();
+            var products = await _repo.GetAllAsync(brand,category,sort);
             return Ok(products);
         }
+
 
         [Authorize(Roles = "admin")]
         [HttpGet("{id}")]

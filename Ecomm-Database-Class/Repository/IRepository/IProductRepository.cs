@@ -10,7 +10,8 @@ namespace Ecomm_Database_Class.Repository.IRepository
     public interface IProductRepository
     {
         
-        Task<IEnumerable<Product>> GetAllAsync();
+        //Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product>> GetAllAsync(string?brand,string?category,string?sort);
         Task<Product?> GetAllAsync(int id);
         Task<Product> AddAsync(Product product);
         Task<Product?> UpdateAsync(Product product);
