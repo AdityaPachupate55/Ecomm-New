@@ -43,6 +43,7 @@ namespace Ecomm_Database_Class.Repository
         // Update user details
         public async Task UpdateUserAsync(User user)
         {
+            user.Password = HashPassword(user.Password);
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }

@@ -32,8 +32,8 @@ namespace Ecomm_Database_Class.Model
         public string? Phone { get; set; }
 
 
-        [Required(ErrorMessage = "Payment Details is required")]
-        public string? PaymentDetails { get; set; }
+        //[Required(ErrorMessage = "Payment Details is required")]
+        //public string? PaymentDetails { get; set; }
 
 
         public string? Role { get; set; }

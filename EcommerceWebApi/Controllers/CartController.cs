@@ -20,7 +20,7 @@ namespace EcommerceWebApi.Controllers
             _cartOperations = cartOperations;
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public async Task<IActionResult> GetAllCarts()
         {
@@ -36,7 +36,7 @@ namespace EcommerceWebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCartById(int id)
         {
@@ -56,7 +56,7 @@ namespace EcommerceWebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpPost]
         public async Task<IActionResult> AddCart([FromBody] Cart cart)
         {
@@ -76,7 +76,7 @@ namespace EcommerceWebApi.Controllers
             return BadRequest(ModelState);
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateCart(int id, [FromBody] Cart cart)
         {
@@ -97,7 +97,7 @@ namespace EcommerceWebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCart(int id)
         {
@@ -113,7 +113,7 @@ namespace EcommerceWebApi.Controllers
             }
         }
 
-        [Authorize("admin")]
+        //[Authorize("admin")]
         [HttpGet("userId/{userId:int}")]
         public async Task<IActionResult> GetAllCartsByUserId(int userId)
         {
@@ -131,7 +131,7 @@ namespace EcommerceWebApi.Controllers
 
         }
 
-        [Authorize("admin")]
+        //[Authorize("admin")]
         [HttpGet("productId/{productId:int}")]
 
         public async Task<IActionResult> GetAllCartsByProductId(int productId)

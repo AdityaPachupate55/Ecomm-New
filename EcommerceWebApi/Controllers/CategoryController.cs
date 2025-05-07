@@ -29,7 +29,7 @@ namespace EcommerceWebApi.Controllers
             return category == null ? NotFound() : Ok(category);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Create(Category category)
         {

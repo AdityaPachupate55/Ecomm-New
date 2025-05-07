@@ -27,7 +27,7 @@ namespace EcommerceWebApi.Controllers
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -36,7 +36,7 @@ namespace EcommerceWebApi.Controllers
             return Ok(product);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Create(Product product)
         {try
@@ -51,7 +51,7 @@ namespace EcommerceWebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Product product)
         {
@@ -60,7 +60,7 @@ namespace EcommerceWebApi.Controllers
             return updated == null ? NotFound() : Ok(updated);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -68,7 +68,7 @@ namespace EcommerceWebApi.Controllers
             return deleted ? NoContent() : NotFound();
         }
 
-        [Authorize(Roles = "admin,user")]
+        //[Authorize(Roles = "admin,user")]
         [HttpGet("category/{categoryId}")]
         public async Task<IActionResult> GetByCategory(int categoryId)
         {
@@ -76,7 +76,7 @@ namespace EcommerceWebApi.Controllers
             return Ok(products);
         }
 
-        [Authorize(Roles = "admin,user")]
+        //[Authorize(Roles = "admin,user")]
         [HttpGet("bestsellers/{count}")]
         public async Task<IActionResult> GetBestSellers(int count)
         {
