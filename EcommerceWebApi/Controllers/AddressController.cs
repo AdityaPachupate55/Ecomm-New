@@ -17,7 +17,7 @@ namespace EcommerceWebApi.Controllers
             _context = addressRepo;
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpPost]
         public async Task<IActionResult> AddAddress([FromBody] Address address)
         {
@@ -28,7 +28,7 @@ namespace EcommerceWebApi.Controllers
             return Ok(new { message = "Address added successfully." });
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpGet("{addressId}")]
         public async Task<IActionResult> GetAddressById(int addressId)
         {
@@ -40,7 +40,7 @@ namespace EcommerceWebApi.Controllers
             return Ok(address);
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetAddressesByUserId(int userId)
         {
@@ -52,7 +52,7 @@ namespace EcommerceWebApi.Controllers
             return Ok(addresses);
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpPut("{addressId}")]
         public async Task<IActionResult> UpdateAddress(int addressId, [FromBody] Address address)
         {
@@ -78,7 +78,7 @@ namespace EcommerceWebApi.Controllers
             }
         }
 
-        [Authorize(Roles = "user")]
+        //[Authorize(Roles = "user")]
         [HttpDelete("{addressId}")]
         public async Task<IActionResult> DeleteAddress(int addressId)
         {

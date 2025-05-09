@@ -16,9 +16,9 @@ namespace Ecomm_Database_Class.Model
         [Range(0.01, double.MaxValue, ErrorMessage = "TotalPrice must be greater than 0")]
         public decimal TotalPrice { get; set; }
 
-        [Required(ErrorMessage = "ShippingAddress is required")]
-        [StringLength(500, ErrorMessage = "ShippingAddress can't be longer than 500 characters")]
-        public string ShippingAddress { get; set; }
+        //[Required(ErrorMessage = "ShippingAddress is required")]
+        //[StringLength(500, ErrorMessage = "ShippingAddress can't be longer than 500 characters")]
+        //public string ShippingAddress { get; set; }
 
         
         public string OrderStatus { get; set; }
